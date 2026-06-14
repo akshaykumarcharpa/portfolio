@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akshay Kumar | Digital Growth Expert</title>
+  <meta name="description" content="Freelance Digital Growth Expert — Web Development, Facebook Ads, Automation & Business Strategy. 70+ websites live, 3 years experience." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #FF5C00;
+      --accent2: #FFB800;
+      --bg: #FFFFFF;
+      --bg2: #F7F6F3;
+      --text: #0D0D0D;
+      --muted: #666660;
+      --border: rgba(0,0,0,0.1);
+      --radius: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 0.5px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 1.1rem;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+    .nav-links a {
+      font-size: 13px; color: var(--muted); text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--accent); color: #fff;
+      border: none; padding: 8px 20px;
+      border-radius: 20px; font-size: 13px; font-weight: 500;
+      cursor: pointer; text-decoration: none;
+    }
+    .nav-cta:hover { background: #e04e00; }
+
+    /* SECTIONS */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 900px; margin: 0 auto; }
+    .section-label {
+      font-size: 11px; font-weight: 500; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800; margin-bottom: 2rem; line-height: 1.15;
+    }
+
+    /* HERO */
+    #home {
+      padding: 6rem 2rem 5rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .hero-tag {
+      display: inline-block; background: var(--accent); color: #fff;
+      font-size: 11px; font-weight: 500; letter-spacing: .1em;
+      padding: 5px 14px; border-radius: 20px; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero-name {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 800; line-height: 1.04; letter-spacing: -.03em;
+    }
+    .hero-name span { color: var(--accent); }
+    .hero-sub {
+      font-size: 17px; color: var(--muted);
+      margin-top: 1.2rem; max-width: 520px; line-height: 1.75;
+    }
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 14px; margin-top: 2.5rem; max-width: 480px;
+    }
+    .stat {
+      background: var(--bg2); border-radius: var(--radius);
+      padding: 1.2rem 1rem; text-align: center;
+    }
+    .stat-n {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.2rem; font-weight: 800; color: var(--accent);
+    }
+    .stat-l { font-size: 12px; color: var(--muted); margin-top: 3px; }
+    .hero-ctas { display: flex; gap: 12px; margin-top: 2.2rem; flex-wrap: wrap; }
+    .btn-pri {
+      background: var(--accent); color: #fff;
+      border: none; padding: 12px 28px;
+      border-radius: 8px; font-size: 15px; font-weight: 500;
+      cursor: pointer; text-decoration: none; display: inline-block;
+    }
+    .btn-pri:hover { background: #e04e00; }
+    .btn-sec {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border); padding: 12px 28px;
+      border-radius: 8px; font-size: 15px;
+      cursor: pointer; text-decoration: none; display: inline-block;
+    }
+    .btn-sec:hover { background: var(--bg2); }
+
+    /* ABOUT */
+    #about { background: var(--bg2); border-bottom: 0.5px solid var(--border); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .about-img-wrap {
+      border-radius: var(--radius); overflow: hidden;
+      aspect-ratio: 3/4; background: var(--border);
+      position: relative;
+    }
+    .about-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    /* Placeholder shown when no image */
+    .about-img-placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; text-align: center; padding: 2rem;
+    }
+    .about-initials {
+      font-family: 'Syne', sans-serif;
+      font-size: 5rem; font-weight: 800; line-height: 1;
+    }
+    .about-initials-sub { font-size: 14px; margin-top: .5rem; opacity: .85; }
+    .about-text p { font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+    .about-text p:last-child { margin-bottom: 0; }
+
+    /* SERVICES */
+    #services { border-bottom: 0.5px solid var(--border); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+    }
+    .service-card {
+      border: 0.5px solid var(--border); border-radius: var(--radius);
+      padding: 1.5rem; transition: border-color .2s, transform .2s;
+    }
+    .service-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .service-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .service-card h3 { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: .5rem; }
+    .service-card p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+    /* PORTFOLIO */
+    #portfolio { background: var(--bg2); border-bottom: 0.5px solid var(--border); }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .portfolio-card {
+      background: var(--bg); border-radius: var(--radius);
+      border: 0.5px solid var(--border); overflow: hidden;
+      transition: transform .2s;
+    }
+    .portfolio-card:hover { transform: translateY(-3px); }
+    .portfolio-img {
+      aspect-ratio: 16/9; background: var(--bg2);
+      overflow: hidden; position: relative;
+    }
+    .portfolio-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    /* placeholder when image not added */
+    .portfolio-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #f0ece8, #e8e4df);
+      color: var(--muted); font-size: 13px;
+    }
+    .portfolio-info { padding: 1rem 1.1rem; }
+    .portfolio-industry {
+      font-size: 11px; text-transform: uppercase;
+      letter-spacing: .1em; color: var(--accent);
+      font-weight: 500; margin-bottom: .4rem;
+    }
+    .portfolio-info h3 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: .3rem; }
+    .portfolio-info p { font-size: 12px; color: var(--muted); }
+    .portfolio-link {
+      display: inline-block; margin-top: .8rem;
+      font-size: 12px; color: var(--accent);
+      text-decoration: none; font-weight: 500;
+    }
+    .portfolio-link:hover { text-decoration: underline; }
+
+    /* INDUSTRIES */
+    #industries { border-bottom: 0.5px solid var(--border); }
+    .industry-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .pill {
+      border: 1px solid var(--border); border-radius: 30px;
+      padding: 8px 18px; font-size: 14px; color: var(--muted);
+      display: flex; align-items: center; gap: 7px;
+    }
+    .pill.active { border-color: var(--accent); color: var(--accent); background: #fff4ee; }
+    .pill-icon { font-size: 1.1rem; }
+
+    /* SKILLS */
+    #skills { background: var(--bg2); border-bottom: 0.5px solid var(--border); }
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .skill-row { margin-bottom: 1.1rem; }
+    .skill-top { display: flex; justify-content: space-between; margin-bottom: 6px; }
+    .skill-name { font-size: 13px; font-weight: 500; }
+    .skill-pct { font-size: 13px; color: var(--muted); }
+    .skill-bar { height: 4px; background: var(--border); border-radius: 2px; }
+    .skill-fill { height: 100%; background: var(--accent); border-radius: 2px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 2rem; }
+    .tag {
+      background: var(--bg); border: 0.5px solid var(--border);
+      border-radius: 4px; padding: 5px 12px; font-size: 12px; color: var(--muted);
+    }
+    .tag.hot { border-color: var(--accent); color: var(--accent); background: #fff4ee; }
+
+    /* CONTACT */
+    #contact { border-bottom: 0.5px solid var(--border); }
+    .contact-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px; margin-bottom: 2rem;
+    }
+    .contact-card {
+      background: var(--bg2); border: 0.5px solid var(--border);
+      border-radius: var(--radius); padding: 1.2rem 1.3rem;
+      display: flex; align-items: center; gap: 14px;
+      text-decoration: none; color: inherit; transition: border-color .2s;
+    }
+    .contact-card:hover { border-color: var(--accent); }
+    .contact-icon { font-size: 1.5rem; }
+    .contact-label { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 3px; }
+    .contact-val { font-size: 14px; font-weight: 500; }
+
+    /* FOOTER */
+    footer {
+      padding: 2rem; text-align: center;
+      font-size: 13px; color: var(--muted);
+      border-top: 0.5px solid var(--border);
+    }
+    footer span { color: var(--accent); }
+
+    /* RESPONSIVE */
+    @media (max-width: 700px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      section { padding: 3.5rem 1.2rem; }
+      #home { padding: 4rem 1.2rem 3rem; }
+      .about-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Akshay<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">Hire me</a>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="container">
+    <div class="hero-tag">Freelance Digital Growth Expert</div>
+    <h1 class="hero-name">Akshay<br><span>Kumar.</span></h1>
+    <p class="hero-sub">I turn businesses into revenue machines — through high-converting websites, Facebook ads, and smart automation. 3 years · 70+ live websites · real results across industries.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-n">70+</div><div class="stat-l">Websites Live</div></div>
+      <div class="stat"><div class="stat-n">3</div><div class="stat-l">Yrs Experience</div></div>
+      <div class="stat"><div class="stat-n">6+</div><div class="stat-l">Industries</div></div>
+    </div>
+    <div class="hero-ctas">
+      <a class="btn-pri" href="#contact">Work with me</a>
+      <a class="btn-sec" href="#portfolio">See my work</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <!--
+          TO ADD YOUR PHOTO:
+          1. Save your photo as "akshay.jpg" in the same folder as this index.html
+          2. Replace the placeholder div below with:
+             <img src="akshay.jpg" alt="Akshay Kumar" />
+        -->
+        <img src="images/IMG-20260330-WA0010.jpg" alt="Akshay Kumar" />
+      </div>
+      <div class="about-text">
+        <div class="section-label">About me</div>
+        <h2 class="section-title">The person<br>behind the results</h2>
+        <p>I'm Akshay Kumar, a freelance digital growth expert based in Warangal. Over the past 3 years I've built and launched 70+ websites and run paid ad campaigns that have generated real, measurable returns for my clients.</p>
+        <p>I work with businesses in real estate, agro, finance, law, and healthcare — industries where trust and clarity matter. My approach: understand the business first, then build the digital engine around it.</p>
+        <p>Beyond execution, I help clients with strategy — what to build, who to target, how to automate the boring stuff, and where to invest their marketing budget for maximum ROI.</p>
+        <a class="btn-pri" href="#contact" style="margin-top:1.5rem">Let's talk →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-label">What I do</div>
+    <h2 class="section-title">Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🌐</div>
+        <h3>Website Development</h3>
+        <p>Fast, conversion-focused websites built for real business goals — not just looks. WordPress, landing pages, lead gen funnels, and e-commerce.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📣</div>
+        <h3>Facebook &amp; Meta Ads</h3>
+        <p>ROI-first ad campaigns — from creative and copy to audience targeting and retargeting. Lead gen, brand awareness, and product sales.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚙️</div>
+        <h3>Automation</h3>
+        <p>Eliminate repetitive work. I automate your CRM follow-ups, lead nurturing, WhatsApp sequences, and business workflows using Make, Zapier &amp; more.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📈</div>
+        <h3>Digital Marketing</h3>
+        <p>End-to-end strategy — SEO, content, social media, and paid ads working together to grow your brand and drive consistent leads.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧠</div>
+        <h3>Business Strategy</h3>
+        <p>Growth roadmaps, competitive positioning, and go-to-market planning. I help you figure out the right moves, not just execute them.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Business Optimization</h3>
+        <p>Analyse what's working, cut what isn't, and double down on high-ROI channels. Systems thinking applied to your entire digital operation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="container">
+    <div class="section-label">My work</div>
+    <h2 class="section-title">Selected projects</h2>
+    <div class="portfolio-grid">
+
+      <!--
+        HOW TO ADD YOUR WEBSITE SCREENSHOTS:
+        1. Take a screenshot of your website and save it (e.g. "project1.jpg")
+        2. Upload it to your GitHub repo in an "images" folder
+        3. Replace <div class="portfolio-placeholder">Add screenshot</div>
+           with: <img src="images/project1.jpg" alt="Project name" />
+        4. Replace "https://yoursite.com" with the actual live URL
+      -->
+
+      <div class="portfolio-card">
+        <div class="portfolio-img">
+          <img src="images/realestate.png" alt="Real Estate Project" />
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-industry">Real Estate</div>
+          <h3>Real Estate Lead Gen Site</h3>
+          <p>High-converting landing page with Facebook Ads integration driving 100+ leads/month.</p>
+          <a class="portfolio-link" href="https://yoursite.com" target="_blank">View live site →</a>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-img">
+          <img src="images/doctor.png" alt="Doctor Website" />
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-industry">Healthcare</div>
+          <h3>Doctor / Clinic Website</h3>
+          <p>Professional clinic website with appointment booking and local SEO optimisation.</p>
+          <a class="portfolio-link" href="https://yoursite.com" target="_blank">View live site →</a>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-img">
+          <img src="images/finance.png" alt="Finance Website" />
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-industry">Finance</div>
+          <h3>Finance / Loan Advisory</h3>
+          <p>Lead generation website with automated WhatsApp follow-up funnel.</p>
+          <a class="portfolio-link" href="https://yoursite.com" target="_blank">View live site →</a>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-img">
+          <img src="images/lawfirm.png" alt="Law Firm Website" />
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-industry">Law</div>
+          <h3>Law Firm Website</h3>
+          <p>Professional legal website with case inquiry form and trust-building design.</p>
+          <a class="portfolio-link" href="https://yoursite.com" target="_blank">View live site →</a>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-img">
+          <img src="images/agrotech.png" alt="Agro Business Website" />
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-industry">Agro</div>
+          <h3>Agro Business Website</h3>
+          <p>B2B agro website with product catalogue, enquiry system, and WhatsApp CTA.</p>
+          <a class="portfolio-link" href="https://yoursite.com" target="_blank">View live site →</a>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-img">
+          <img src="images/resturent.png" alt="Restaurant Website" />
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-industry">Restaurant</div>
+          <h3>Restaurant Website</h3>
+          <p>Modern restaurant website with menu, online enquiry and location integration.</p>
+          <a class="portfolio-link" href="https://yoursite.com" target="_blank">View live site →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="industries">
+  <div class="container">
+    <div class="section-label">Who I work with</div>
+    <h2 class="section-title">Industries</h2>
+    <div class="industry-pills">
+      <div class="pill active"><span class="pill-icon">🏠</span> Real Estate</div>
+      <div class="pill active"><span class="pill-icon">🌿</span> Agro / Agriculture</div>
+      <div class="pill"><span class="pill-icon">💰</span> Finance &amp; Loans</div>
+      <div class="pill"><span class="pill-icon">⚖️</span> Law Firms</div>
+      <div class="pill"><span class="pill-icon">🏥</span> Healthcare / Doctors</div>
+      <div class="pill"><span class="pill-icon">🛒</span> E-commerce</div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label">Core skills</div>
+    <h2 class="section-title">What I'm great at</h2>
+    <div class="skills-grid">
+      <div>
+        <div class="skill-row">
+          <div class="skill-top"><span class="skill-name">Website Development</span><span class="skill-pct">95%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-top"><span class="skill-name">Facebook / Meta Ads</span><span class="skill-pct">90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-top"><span class="skill-name">Business Optimization</span><span class="skill-pct">88%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="skill-row">
+          <div class="skill-top"><span class="skill-name">Automations</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-top"><span class="skill-name">Digital Marketing</span><span class="skill-pct">88%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-top"><span class="skill-name">Growth Strategy</span><span class="skill-pct">82%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">WordPress</span>
+      <span class="tag hot">Shopify</span>
+      <span class="tag hot">Meta Ads Manager</span>
+      <span class="tag">GoHighLevel</span>
+      <span class="tag">Zapier</span>
+      <span class="tag">Make (Integromat)</span>
+      <span class="tag">SEO</span>
+      <span class="tag">Google Analytics</span>
+      <span class="tag">Canva</span>
+      <span class="tag">WhatsApp Automation</span>
+      <span class="tag">CRM Setup</span>
+      <span class="tag">Lead Gen Funnels</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Get in touch</div>
+    <h2 class="section-title">Let's build something great</h2>
+    <div class="contact-grid">
+      <a class="contact-card" href="tel:+919347312407">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-label">Phone / WhatsApp</div>
+          <div class="contact-val">+91 93473 12407</div>
+        </div>
+      </a>
+      <a class="contact-card" href="mailto:akshaykumarcharpa@gmail.com">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-val">akshaykumarcharpa@gmail.com</div>
+        </div>
+      </a>
+      <a class="contact-card" href="https://wa.me/919347312407" target="_blank">
+        <div class="contact-icon">💬</div>
+        <div>
+          <div class="contact-label">WhatsApp Direct</div>
+          <div class="contact-val">Chat with me →</div>
+        </div>
+      </a>
+    </div>
+    <a class="btn-pri" href="mailto:akshaykumarcharpa@gmail.com">Send me an email →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>Akshay Kumar</span>. All rights reserved. · Warangal, India</p>
+</footer>
+
+</body>
+</html>
